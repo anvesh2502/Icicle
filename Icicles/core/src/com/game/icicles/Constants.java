@@ -4,19 +4,32 @@ import com.badlogic.gdx.graphics.Color;
 
 public class Constants
 {
-    // TODO: Add a constant for the world size
-       static final float WORLD_SIZE=10.0f;
+    public static final float WORLD_SIZE = 10.0f;
+    public static final Color BACKGROUND_COLOR = Color.BLUE;
 
-    // TODO: Add a constant for the background color of the world
-       static final Color BACKGROUND_COLOR=Color.BLUE;
+    // TODO: Add constant for player head radius
+    public static final float PLAYER_HEAD_RADIUS = 0.5f;
 
+    // TODO: Add constant for player head height
+    public static final float PLAYER_HEAD_HEIGHT = 4.0f * PLAYER_HEAD_RADIUS;
 
-    // TODO: Add a constant for the height of the icicle
-      static final float ICICLE_HEIGHT=1.0f;
+    // TODO: Add constant for player limb width
+    public static final float PLAYER_LIMB_WIDTH = 0.1f;
 
-    // TODO: Add a constant for the width of the icicle
-    static final float ICICLE_WIDTH=0.5f;
+    // TODO: Add constant for circle segments for the player's head
+    public static final int PLAYER_HEAD_SEGMENTS = 20;
 
-    // TODO: Add a constant for the color of the icicles
-    static final Color ICICLE_COLOR=Color.WHITE;
+    // TODO: Add constant for the player's color
+    public static final Color PLAYER_COLOR = Color.BLACK;
+
+    public static final float ICICLES_HEIGHT = 1.0f;
+    public static final float ICICLES_WIDTH = 0.5f;
+    public static final Color ICICLE_COLOR = Color.WHITE;
+
+    public static final float PLAYER_MOVEMENT_SPEED = 10.0f;
+
+    public static final float ACCELEROMETER_SENSITIVITY = 0.5f;
+
+    public static final float GRAVITATIONAL_ACCELERATION = 9.8f;
+
 }

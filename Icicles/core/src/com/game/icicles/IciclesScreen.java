@@ -15,6 +15,8 @@ public class IciclesScreen implements Screen
 
     Icicle icicle;
 
+    Player player;
+
     ShapeRenderer renderer;
 
 
@@ -29,7 +31,10 @@ public class IciclesScreen implements Screen
 
         renderer.setAutoShapeType(true);
 
+        player=new Player(iciclesViewport);
+
         icicle=new Icicle(new Vector2(Constants.WORLD_SIZE/2,Constants.WORLD_SIZE/2));
+
 
 
     }
@@ -37,7 +42,9 @@ public class IciclesScreen implements Screen
     @Override
     public void render(float delta)
     {
-    iciclesViewport.apply(true);
+        iciclesViewport.apply(true);
+        player.update(delta);
+
 
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -47,6 +54,7 @@ public class IciclesScreen implements Screen
         renderer.begin();
         renderer.set(ShapeRenderer.ShapeType.Filled);
         icicle.render(renderer);
+        player.render(renderer);
         renderer.end();
 
 
@@ -57,6 +65,7 @@ public class IciclesScreen implements Screen
     public void resize(int width, int height)
     {
         iciclesViewport.update(width,height,true);
+        player.init();
     }
 
     @Override
