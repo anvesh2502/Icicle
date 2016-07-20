@@ -19,6 +19,8 @@ public class IciclesScreen implements Screen
 
     ShapeRenderer renderer;
 
+    Icicles icicles;
+
 
 
 
@@ -35,6 +37,8 @@ public class IciclesScreen implements Screen
 
         icicle=new Icicle(new Vector2(Constants.WORLD_SIZE/2,Constants.WORLD_SIZE/2));
 
+        icicles=new Icicles(iciclesViewport);
+
 
 
     }
@@ -44,6 +48,7 @@ public class IciclesScreen implements Screen
     {
         iciclesViewport.apply(true);
         player.update(delta);
+        icicles.update(delta);
 
 
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
@@ -53,8 +58,8 @@ public class IciclesScreen implements Screen
 
         renderer.begin();
         renderer.set(ShapeRenderer.ShapeType.Filled);
-        icicle.render(renderer);
         player.render(renderer);
+        icicles.render(renderer);
         renderer.end();
 
 
@@ -66,6 +71,7 @@ public class IciclesScreen implements Screen
     {
         iciclesViewport.update(width,height,true);
         player.init();
+        icicles.init();
     }
 
     @Override

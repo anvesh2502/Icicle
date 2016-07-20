@@ -11,9 +11,12 @@ public class Icicle
 
     Vector2 position;
 
+    Vector2 velocity;
+
     Icicle(Vector2 position)
     {
       this.position=position;
+      this.velocity=new Vector2();
     }
 
     void render(ShapeRenderer renderer)
@@ -28,8 +31,13 @@ public class Icicle
                 position.x + Constants.ICICLES_WIDTH / 2, position.y + Constants.ICICLES_HEIGHT
         );
 
+    }
 
+    void update(float delta)
+    {
+        velocity.mulAdd(Constants.ICICLES_ACCELERATION, delta);
 
-
+        // TODO: Update position using velocity
+        position.mulAdd(velocity, delta);
     }
 }
