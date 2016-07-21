@@ -50,6 +50,11 @@ public class IciclesScreen implements Screen
         player.update(delta);
         icicles.update(delta);
 
+        if(player.hitByIcicles(icicles))
+        {
+            icicles.init();
+        }
+
 
         Gdx.gl.glClearColor(Constants.BACKGROUND_COLOR.r, Constants.BACKGROUND_COLOR.g, Constants.BACKGROUND_COLOR.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

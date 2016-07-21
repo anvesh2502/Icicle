@@ -78,6 +78,20 @@ public class Player
         }
     }
 
+    public boolean hitByIcicles(Icicles icicles)
+    {
+      boolean isHit=false;
+
+      for(Icicle icicle : icicles.icicleList)
+      {
+          if(icicle.position.dst(position)<Constants.PLAYER_HEAD_RADIUS)
+          {
+              isHit=true;
+          }
+      }
+        return isHit;
+    }
+
 
 
 }
