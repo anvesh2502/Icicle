@@ -11,6 +11,7 @@ public class Player
 {
   Vector2 position;
   Viewport viewport;
+  int deaths;
 
 
     Player(Viewport viewport)
@@ -89,6 +90,11 @@ public class Player
               isHit=true;
           }
       }
+
+        if(isHit)
+            deaths+=1;
+
+
         return isHit;
     }
 

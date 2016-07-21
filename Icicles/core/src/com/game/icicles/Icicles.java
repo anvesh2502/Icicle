@@ -9,24 +9,31 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Icicles
 {
+    public static final String TAG = Icicles.class.getName();
+
+    Constants.Difficulty difficulty;
+
+    int iciclesDodged;
   DelayedRemovalArray<Icicle> icicleList;
   Viewport viewport;
 
-    Icicles(Viewport viewport)
+    Icicles(Viewport viewport, Constants.Difficulty difficulty)
     {
         this.viewport=viewport;
+        this.difficulty=difficulty;
         init();
     }
 
     void init()
     {
         icicleList=new DelayedRemovalArray<Icicle>(false,100);
+        iciclesDodged=0;
     }
 
     public void update(float delta)
     {
         // TODO: Replace hard-coded spawn rate with a constant
-        if (MathUtils.random() < delta * Constants.ICICLE_SPAWNS_PER_SECOND)
+        if (MathUtils.random() < delta * difficulty.spawnRate)
         {
             // TODO: Add a new icicle at the top of the viewport at a random x position
             Vector2 newIciclePosition = new Vector2(
@@ -51,6 +58,7 @@ public class Icicles
         for (int i = 0; i < icicleList.size; i++) {
             if (icicleList.get(i).position.y < -Constants.ICICLES_HEIGHT) {
                 icicleList.removeIndex(i);
+                iciclesDodged+=1;
             }
         }
         // TODO: End removal session
